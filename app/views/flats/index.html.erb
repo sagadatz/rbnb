@@ -1,37 +1,30 @@
-<h1>All Flats</h1>
-<%= link_to 'Add a New Flat', new_flat_path, class: 'btn btn-primary' %>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Rooms</th>
-      <th>Address</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @flats.each do |flat| %>
+<h1 class="mb-4">All Flaterinos</h1>
+<%= link_to 'Add a New Flat', new_flat_path, class: 'btn btn-primary mb-3' %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
       <tr>
-        <td><%= flat.title %></td>
-        <td><%= number_to_currency(flat.price, unit: "€") %></td>
-        <td><%= flat.rooms %></td>
-        <td><%= flat.adress %></td>
-        <td>
-          <%= link_to 'Show', flat_path(flat), class: 'btn btn-info' %>
-          <%= link_to 'Edit', edit_flat_path(flat), class: 'btn btn-warning' %>
-          <%= link_to 'Delete', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-        </td>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Rooms</th>
+        <th>Address</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-
-
-
-
-
+    </thead>
+    <tbody>
+      <% @flats.each do |flat| %>
+        <tr>
+          <td><%= flat.title %></td>
+          <td><%= number_to_currency(flat.price, unit: "€") %></td>
+          <td><%= flat.rooms %></td>
+          <td><%= flat.adress %></td>
+          <td>
+            <%= link_to 'Show', flat_path(flat), class: 'btn btn-info btn-sm' %>
+            <%= link_to 'Edit', edit_flat_path(flat), class: 'btn btn-warning btn-sm' %>
+            <%= link_to 'Delete', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

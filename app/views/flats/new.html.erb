@@ -1,5 +1,6 @@
 <h1>Create a New Flat</h1>
 <%= form_with model: @flat, local: true do |f| %>
+  <%= f.file_field :photo %>
   <div class="form-group">
     <%= f.label :title, "Flat Title" %>
     <%= f.text_field :title, class: 'form-control', placeholder: 'Enter the title of the flat' %>
@@ -25,12 +26,3 @@
   </div>
 <% end %>
 <%= link_to 'Back to All Flats', flats_path, class: 'btn btn-secondary' %>
-
-
-
-
-
-
-
-
-
