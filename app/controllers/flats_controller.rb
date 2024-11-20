@@ -44,6 +44,6 @@ class FlatsController < ApplicationController
   end
   # Only allow a list of trusted parameters through.
   def flat_params
-    params.require(:flat).permit(:title, :price, :status, :rooms, :adress, :description)
+    params.require(:flat).permit(:title, :price, :status, :rooms, :adress, :description, :photo)
   end
 end
