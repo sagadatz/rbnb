@@ -68,49 +68,49 @@ flats = Flat.create!([
 puts "Created #{flats.count} flats."
 
 # Create bookings
-bookings = Booking.create!([
-  {
-    flat: flats[0],
-    user: users[1],
-    start_date: Date.today.to_s(:db),
-    end_date: (Date.today + 3).to_s(:db),
-    status: 1
-  },
-  {
-    flat: flats[1],
-    user: users[2],
-    start_date: (Date.today + 10).to_s(:db),
-    end_date: (Date.today + 15).to_s(:db),
-    status: 1
-  },
-  {
-    flat: flats[2],
-    user: users[3],
-    start_date: (Date.today + 5).to_s(:db),
-    end_date: (Date.today + 7).to_s(:db),
-    status: 1
-  }
-])
+# bookings = Booking.create!([
+#   {
+#     flat: flats[0],
+#     user: users[1],
+#     start_date: Date.today,
+#     end_date: (Date.today + 3),
+#     status: 1
+#   },
+#   {
+#     flat: flats[1],
+#     user: users[2],
+#     start_date: (Date.today + 10),
+#     end_date: (Date.today + 15),
+#     status: 1
+#   },
+#   {
+#     flat: flats[2],
+#     user: users[3],
+#     start_date: (Date.today + 5),
+#     end_date: (Date.today + 7),
+#     status: 1
+#   }
+# ])
 
-puts "Created #{bookings.count} bookings."
+# puts "Created #{bookings.count} bookings."
 
-# Create reviews
-reviews = Review.create!([
-  {
-    booking: bookings[0],
-    rating: 5,
-    comment: "Amazing place! Super clean and comfortable."
-  },
-  {
-    booking: bookings[1],
-    rating: 4,
-    comment: "Great location, but could use some better amenities."
-  },
-  {
-    booking: bookings[2],
-    rating: 3,
-    comment: "The stay was okay, but the host could be more responsive."
-  }
-])
+# # Create reviews
+# reviews = Review.create!([
+#   {
+#     booking: bookings[0],
+#     rating: 5,
+#     comment: "Amazing place! Super clean and comfortable."
+#   },
+#   {
+#     booking: bookings[1],
+#     rating: 4,
+#     comment: "Great location, but could use some better amenities."
+#   },
+#   {
+#     booking: bookings[2],
+#     rating: 3,
+#     comment: "The stay was okay, but the host could be more responsive."
+#   }
+# ])
 
-puts "Created #{reviews.count} reviews."
+# puts "Created #{reviews.count} reviews."
