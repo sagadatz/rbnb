@@ -11,4 +11,3 @@ class CreateBookings < ActiveRecord::Migration[7.1]
     end
   end
 end
-git 
