@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   # root to: "pages#home"
+
+  resources :flats, only: %i[index show new create edit]
 end
