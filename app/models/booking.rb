@@ -1,4 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :property
+  belongs_to :flat
   belongs_to :user
 end
