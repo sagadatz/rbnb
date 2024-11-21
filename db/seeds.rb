@@ -9,6 +9,7 @@
 #   end
 # db/seeds.rb
 
+require 'open-uri'
 # Clear existing data (optional)
 Booking.destroy_all
 Flat.destroy_all
@@ -64,6 +65,14 @@ flats = Flat.create!([
     user: users[3]
   }
 ])
+
+image_urls = ["https://res.cloudinary.com/dq57wkefg/image/upload/v1732187989/space_station_b4bkg7.jpg", "https://res.cloudinary.com/dq57wkefg/image/upload/v1732198149/Gorki_Penthouse_1_010_sgqizu.jpg", "https://res.cloudinary.com/dq57wkefg/image/upload/v1732198149/nena_blu_e_504-1-3_tdsivy.jpg", "https://res.cloudinary.com/dq57wkefg/image/upload/v1732198149/01_Wohnraum-1-1024x683_xkanf0.jpg"]
+#image_file = URI.open("https://res.cloudinary.com/dq57wkefg/image/upload/v1732187989/space_station_b4bkg7.jpg")
+
+Flat.all.each_with_index do |flat, index|
+  image_file = URI.open(image_urls[index])
+  flat.photo.attach(io: image_file, filename: "#{flat.title}.jpg", content_type: "image/jpg")
+end
 
 puts "Created #{flats.count} flats."
 
