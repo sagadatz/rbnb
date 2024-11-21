@@ -5,15 +5,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="<%= flats_path %>">Flats</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= new_flat_path %>">Add Flat</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
-          <li class="nav-item nav-item-right dropdown">
+          <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://w0.peakpx.com/wallpaper/18/267/HD-wallpaper-bimo-adventure-time-cool-jake.jpg", class: "avatar", alt: "dropdown menu" %>
             </a>
@@ -24,7 +26,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item nav-item-right">
+          <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
