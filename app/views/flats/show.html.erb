@@ -6,4 +6,5 @@
 <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill if @flat.photo.attached? %>
 <%= link_to 'Back to All Flats', flats_path, class: 'btn btn-secondary' %>
 <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-warning' %>
-<%= link_to 'Delete', flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<%#= link_to 'Delete', flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<%= link_to 'Delete', flat_path(@flat), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

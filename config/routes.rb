@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   # root to: "pages#home"
 
-  resources :flats, only: %i[index show new create edit]
+  resources :flats, only: %i[index show new create edit destroy]
 end
