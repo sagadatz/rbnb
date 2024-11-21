@@ -1,30 +1,25 @@
 <h1 class="mb-4">All Flaterinos</h1>
 <%= link_to 'Add a New Flat', new_flat_path, class: 'btn btn-primary mb-3' %>
-<div class="table-responsive">
-  <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th>Title</th>
-        <th>Price</th>
-        <th>Rooms</th>
-        <th>Address</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @flats.each do |flat| %>
-        <tr>
-          <td><%= flat.title %></td>
-          <td><%= number_to_currency(flat.price, unit: "€") %></td>
-          <td><%= flat.rooms %></td>
-          <td><%= flat.adress %></td>
-          <td>
+
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%# <% <img src="<%= flat.photo_url %>" class="card-img-top" alt="<%= flat.title %>"> <!-- Optional image --> %> %>
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.title %></h5>
+          <p class="card-text">
+            <strong>Price:</strong> <%= number_to_currency(flat.price, unit: "€") %><br>
+            <strong>Rooms:</strong> <%= flat.rooms %><br>
+            <strong>Address:</strong> <%= flat.adress %>
+          </p>
+          <div class="d-flex justify-content-between">
             <%= link_to 'Show', flat_path(flat), class: 'btn btn-info btn-sm' %>
             <%= link_to 'Edit', edit_flat_path(flat), class: 'btn btn-warning btn-sm' %>
-            <%= link_to 'Delete', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            <%= link_to 'Delete', flat_path(flat), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

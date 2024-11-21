@@ -34,8 +34,13 @@ class FlatsController < ApplicationController
   end
   # DELETE /flats/:id
   def destroy
-    @flat.destroy
-    redirect_to flats_url, notice: 'Flat was successfully deleted.'
+    @flat = Flat.find_by(id: params[:id])
+    if @flat
+      @flat.destroy
+      redirect_to flats_url, notice: 'Flat was successfully deleted.'
+    else
+      redirect_to flats_url, alert: 'Flat not found.'
+    end
   end
   private
   # Use callbacks to share common setup or constraints between actions.

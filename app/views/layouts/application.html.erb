@@ -1,34 +1,15 @@
-<%# <!DOCTYPE html>
-<%# <html>
-  <%# <head> %>
-    <%# <title>Rbnb</title> %>
-    <%# <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> %>
-    <%#= csrf_meta_tags %>
-    <%# <%= csp_meta_tag %>
-
-    <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%#= javascript_importmap_tags %>
-  <%# </head>
-
-  <%# <body> %>
-    <%#= render "shared/navbar" %>
-
-    <%# <div class="container"> %>
-      <%#= yield %>
-    <%# </div> %>
-    <%#= render "shared/flashes" %>
-  <%# </body>
-</html> %>
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlatBookingApp</title>
+    <title>Rbnb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -48,13 +29,11 @@
         </div>
       </div>
     </nav>
-    <div class="container mt-4">
+    <%# render "shared/navbar" %>
+
+    <div class="container">
       <%= yield %>
     </div>
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <span class="text-muted">© 2024 FlatBookingCompleteAwesomenessApp</span>
-      </div>
-    </footer>
+    <%= render "shared/flashes" %>
   </body>
 </html>
