@@ -3,7 +3,7 @@
 
   <!-- Button to go back or perform other actions -->
   <div class="text-center mb-4">
-    <%= link_to 'Back to Flats', flats_path, class: 'btn btn-notion-accent btn-lg' %>
+    <%= link_to 'Back to Flats', root_path, class: 'btn btn-notion-accent btn-lg' %>
   </div>
 
   <!-- Flat details (left image, right information) -->
@@ -33,9 +33,9 @@
           <!-- Buttons next to each other -->
           <div class="d-flex gap-2">
             <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-notion btn-sm' %>
-            <%= link_to 'Back to Flats', flats_path, class: 'btn btn-notion btn-sm' %>
+            <%= link_to 'Back to Flats', root_path, class: 'btn btn-notion btn-sm' %>
             <%= link_to 'Book this flat', new_flat_booking_path(@flat), class: 'btn btn-notion btn-sm' %>
-            <%= link_to 'Delete', flat_path(@flat), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-notion btn-sm' %>
+            <%= link_to 'Delete', flat_path(@flat), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-notion btn-delete btn-sm' %>
           </div>
         </div>
 

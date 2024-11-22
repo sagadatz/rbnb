@@ -12,6 +12,7 @@
   --notion-accent: #FFFFFF; /* White buttons */
   --notion-card: #FFFFFF; /* Card background */
   --notion-hover: #B2FAB4; /* Hover effect */
+  --delete-hover: #fab2b2;
 }
 /* Page background */
 .bg-notion {
@@ -34,6 +35,21 @@
 }
 /* Buttons */
 .btn-notion {
+  border: 1px solid var(--notion-border);
+  color: var(--notion-dark);
+  font-weight: bold;
+  margin: 7px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: var(--delete-hover);
+  color: var(--notion-dark);
+}
+
+.btn-btn {
   background-color: var(--notion-accent);
   border: 1px solid var(--notion-border);
   color: var(--notion-dark);
@@ -42,7 +58,7 @@
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.btn-notion:hover {
+.btn-btn:hover {
   background-color: var(--notion-hover);
   color: var(--notion-dark);
 }
@@ -55,6 +71,12 @@
   background-color: var(--notion-hover);
   color: var(--notion-dark);
 }
+
+.btn-notion {
+  background-color: var(--notion-hover);
+  color: var(--notion-dark);
+}
+
 /* Typography */
 body {
   font-family: 'Inter', Arial, sans-serif;
@@ -65,4 +87,5 @@ h1 {
 }
 p {
   line-height: 1.6;
+  font-size: 20px;
 }
