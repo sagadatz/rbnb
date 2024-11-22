@@ -1,0 +1,29 @@
+<h1 class="text-center">Welcome to your profile page, <%= @user.email %></h1>
+
+<% @bookings.each do |booking| %>
+  <div class="card mb-3">
+    <!-- Display flat image -->
+    <% if booking.flat.photo.present? %>
+      <img src="<%= booking.flat.photo.url %>" class="card-img-top img-fluid" alt="<%= booking.flat.title %>" style="height: 300px; width: auto; object-fit: cover;">
+    <% else %>
+      <img src="path/to/default-image.jpg" class="card-img-top img-fluid" alt="No Image Available" style="height: 300px; width: auto;">
+    <% end %>
+
+    <div class="card-body">
+      <!-- Display flat title -->
+      <h5 class="card-title"><%= booking.flat.title %></h5>
+
+      <!-- Display flat description -->
+      <p class="card-text"><%= booking.flat.description %></p>
+
+      <!-- Display flat price -->
+      <p class="card-text"><strong>Price:</strong> <%= number_to_currency(booking.flat.price) %></p>
+
+      <!-- Display flat room count -->
+      <p class="card-text"><strong>Rooms:</strong> <%= booking.flat.rooms %></p>
+
+      <!-- Display booking timestamp -->
+      <p class="card-text"><small class="text-muted">Last updated: <%= time_ago_in_words(booking.updated_at) %> ago</small></p>
+    </div>
+  </div>
+<% end %>
