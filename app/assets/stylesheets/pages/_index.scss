@@ -1,2 +1,68 @@
 // Import page-specific CSS files here.
 @import "home";
+
+// Import page-specific CSS files here.
+@import "home";
+//* Global color palette inspired by Notion */
+:root {
+  --notion-bg: #F7F6F3; /* Off-white background */
+  --notion-dark: #2F3437; /* Dark gray text */
+  --notion-medium: #4E5458; /* Medium gray text */
+  --notion-border: #DCDCDC; /* Light gray borders */
+  --notion-accent: #FFFFFF; /* White buttons */
+  --notion-card: #FFFFFF; /* Card background */
+  --notion-hover: #B2FAB4; /* Hover effect */
+}
+/* Page background */
+.bg-notion {
+  background-color: var(--notion-bg);
+}
+.text-notion-dark {
+  color: var(--notion-dark);
+}
+.text-notion-medium {
+  color: var(--notion-medium);
+}
+/* Card styles */
+.bg-notion-card {
+  background-color: var(--notion-card);
+  border: 1px solid var(--notion-border);
+  border-radius: 10px;
+}
+.card-title {
+  font-size: 1.25rem;
+}
+/* Buttons */
+.btn-notion {
+  background-color: var(--notion-accent);
+  border: 1px solid var(--notion-border);
+  color: var(--notion-dark);
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-notion:hover {
+  background-color: var(--notion-hover);
+  color: var(--notion-dark);
+}
+.btn-notion-accent {
+  background-color: var(--notion-dark);
+  color: var(--notion-accent);
+  border: none;
+}
+.btn-notion-accent:hover {
+  background-color: var(--notion-hover);
+  color: var(--notion-dark);
+}
+/* Typography */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--notion-bg);
+}
+h1 {
+  font-size: 2.5rem;
+}
+p {
+  line-height: 1.6;
+}
