@@ -1,11 +1,45 @@
-<h1><%= @flat.title %></h1>
-<p><strong>Price:</strong> <%= number_to_currency(@flat.price, unit: "€") %></p>
-<p><strong>Rooms:</strong> <%= @flat.rooms %></p>
-<p><strong>Address:</strong> <%= @flat.adress %></p>
-<p><strong>Description:</strong> <%= @flat.description %></p>
-<%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill if @flat.photo.attached? %>
-<%= link_to 'Back to All Flats', flats_path, class: 'btn btn-secondary' %>
-<%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-warning' %>
-<%#= link_to 'Delete', flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-<%= link_to 'Delete', flat_path(@flat), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-<%= link_to 'Book this flat', new_flat_booking_path(@flat), class: 'btn btn-success' %>
+<div class="container py-5 bg-notion text-notion-dark">
+  <h1 class="mb-4 text-center fw-bold"><%= @flat.title %></h1>
+
+  <!-- Button to go back or perform other actions -->
+  <div class="text-center mb-4">
+    <%= link_to 'Back to Flats', flats_path, class: 'btn btn-notion-accent btn-lg' %>
+  </div>
+
+  <!-- Flat details (left image, right information) -->
+  <div class="row">
+    <div class="col-md-12 mb-4">
+      <div class="card bg-notion-card text-notion-dark shadow-sm d-flex flex-row rounded-3">
+
+        <!-- Left side: Image (fill out the border) -->
+        <div class="card-img-left" style="flex: 0 0 50%; height: 100%; overflow: hidden; border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;">
+          <% if @flat.photo.attached? %>
+            <%= cl_image_tag @flat.photo.key, class: 'img-fluid rounded-0', style: 'height: 100%; width: 100%; object-fit: cover;' %>
+          <% else %>
+            <img src="https://via.placeholder.com/600x400?text=No+Image" class="img-fluid rounded-0" alt="Flat Image" style="height: 100%; width: 100%; object-fit: cover;">
+          <% end %>
+        </div>
+
+        <!-- Right side: Information -->
+        <div class="card-body d-flex flex-column justify-content-between" style="flex: 1; border-top-right-radius: .25rem; border-bottom-right-radius: .25rem;">
+          <h5 class="card-title fw-bold"><%= @flat.title %></h5>
+          <p class="card-text">
+            <strong>Price:</strong> <%= number_to_currency(@flat.price, unit: "€") %><br>
+            <strong>Rooms:</strong> <%= @flat.rooms %><br>
+            <strong>Address:</strong> <%= @flat.adress %><br>
+            <strong>Description:</strong> <%= @flat.description %>
+          </p>
+
+          <!-- Buttons next to each other -->
+          <div class="d-flex gap-2">
+            <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-notion btn-sm' %>
+            <%= link_to 'Back to Flats', flats_path, class: 'btn btn-notion btn-sm' %>
+            <%= link_to 'Book this flat', new_flat_booking_path(@flat), class: 'btn btn-notion btn-sm' %>
+            <%= link_to 'Delete', flat_path(@flat), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'btn btn-notion btn-sm' %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
