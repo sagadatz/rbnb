@@ -1,10 +1,10 @@
 <h1 class="text-center">Welcome to your profile page, <%= @user.email %></h1>
 
 <% @bookings.each do |booking| %>
-  <div class="card mb-3">
+  <div class="card mb-3 rounded" >
     <!-- Display flat image -->
     <% if booking.flat.photo.present? %>
-      <img src="<%= booking.flat.photo.url %>" class="card-img-top img-fluid" alt="<%= booking.flat.title %>" style="height: 300px; width: auto; object-fit: cover;">
+      <img src="<%= booking.flat.photo.url %>" class="card-img-top img-fluid rounded-3" alt="<%= booking.flat.title %>" style="height: 300px; width: auto; object-fit: cover;">
     <% else %>
       <img src="path/to/default-image.jpg" class="card-img-top img-fluid" alt="No Image Available" style="height: 300px; width: auto;">
     <% end %>
